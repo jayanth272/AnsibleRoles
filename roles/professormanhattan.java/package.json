@@ -1,0 +1,192 @@
+{
+  "private": false,
+  "name": "@installdoc/ansible-java",
+  "version": "1.0.1",
+  "description": "Installs Java on almost any platform",
+  "license": "MIT",
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/ansible-java.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/ansible-roles/java/-/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "task ansible:build:none",
+    "help": "task --menu",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash start.sh",
+    "test": "[[ $- == *i* ]] && task ansible:test:prompt || task ansible:test:default"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional"
+    }
+  },
+  "dependencies": {},
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.0.0",
+    "@washingtondc/development": "latest",
+    "cz-emoji-conventional": "^1.0.1",
+    "eslint-config-strict-mode": "latest",
+    "handlebars-helpers": "^0.10.0",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest"
+  },
+  "keywords": [
+    "ansible",
+    "ansible-role",
+    "archlinux",
+    "centos",
+    "debian",
+    "development",
+    "doctor",
+    "fedora",
+    "install",
+    "installdoc",
+    "installdoctor",
+    "java",
+    "jdk",
+    "macos",
+    "mblabs",
+    "megabytelabs",
+    "molecule",
+    "openjdk",
+    "oracle",
+    "professormanhattan",
+    "role",
+    "system",
+    "ubuntu",
+    "washingtondc",
+    "web",
+    "windows"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "blueprint": {
+    "ansible_galaxy_project_id": "57261",
+    "description": "Installs Java on almost any platform",
+    "github_id": "R_kgDOGdjXFA",
+    "gitlab_group_id": "",
+    "gitlab_project_id": "31712802",
+    "group": "ansible",
+    "name": "Java",
+    "overview": "[Java](https://www.java.com/en/) is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/ansible-java",
+      "gitlab": "https://gitlab.com/megabyte-labs/ansible-roles/java"
+    },
+    "slug": "java",
+    "subgroup": "role",
+    "title": "Java"
+  },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "lint-staged": {
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(js|jsx|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.json": [
+      "task fix:json --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
+    "**/*.sh": [
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "**/*.yml": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*vault.yml": [
+      "task ansible:vault:lint:file --"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
+  "ntl": {
+    "descriptions": {
+      "build": "Builds the project, if needed",
+      "help": "Display the Bodega Taskfile.yml interactive help menu",
+      "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
+      "test": "Runs the appropriate test logic"
+    }
+  },
+  "prettier": "prettier-config-sexy-mode",
+  "release": {
+    "branches": [
+      "main",
+      "master",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "extends": "semantic-release-config"
+  }
+}

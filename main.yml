@@ -1,0 +1,26 @@
+---
+- hosts: localhost 
+  gather_facts: yes 
+  become : true 
+  vars :
+    xcode_xip_location: '~/Downloads/Xcode_15.xip' 
+    xcode_major_version: 15
+    xcode_build: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
+    xcode_packages_location: /Applications/Xcode.app/Contents/Resources/Packages 
+    
+    android_sdks:
+      - platform-tools
+      - emulator
+      - build-tools;30.0.0
+      - platforms;android-30
+      - sources;android-30
+      - patcher;v4
+    sdk_location: ~/Android/Sdk
+    user_configs:
+      - username: myuser
+      - username: root
+        system: true
+
+  roles :
+    - ansible-androidstudio
+    #- ansible-role-xcode 
